@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title Is it 114&deg; yet?
+    :css
+      body {
+        font-family: "Arial";
+        text-align: center;
+      }
+      h1 {
+        font-size: 24px;
+      }
+      #main {
+        margin-top: 40px;
+      }
+  %body
+    #main
+      %h1 Is it 114&deg; yet in Oklahoma City?
+      - if @is_it_114
+        %h2 YES!
+        %p
+          It hit 114&deg; at #{@time_set.strftime("%I:%M%p")}.
+          %br/
+          The current temp is #{@temp}&deg;
+      - else
+        %p Nope. It's only a paltry #{@temp.round}&deg;
