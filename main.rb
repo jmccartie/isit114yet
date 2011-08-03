@@ -14,7 +14,7 @@ get '/' do
   @temp = settings.cache.get('current_temp')
 
   if @temp.nil?
-    Temp::set_temp
+    Temp.new.set_temp
     @is_it_114 = settings.cache.get('is_it_114')
     @temp = settings.cache.get('current_temp')
   end
