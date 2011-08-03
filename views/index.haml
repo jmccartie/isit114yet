@@ -22,5 +22,14 @@
           It hit 114&deg; at #{@time_set.strftime("%I:%M%p")}.
           %br/
           The current temp is #{@temp}&deg;
+        %center
+          %table
+            %tr
+              %td
+                %img{:src => "http://www.sirlin.net/storage/street_fighter/dhalsim_yoga_flame.gif?__SQUARESPACE_CACHEVERSION=1226558938179"}
+              %td
+                %img{:src => "http://i531.photobucket.com/albums/dd358/iwanttorentawombat/facemelt.gif", :style => "position:relative; left: -157px; top: -75px;"}
+        %p
+
       - else
         %p Nope. It's only a paltry #{@temp}&deg;
