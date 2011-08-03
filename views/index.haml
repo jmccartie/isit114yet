@@ -1,3 +1,4 @@
+- adj = %w[petty trifling insignificant shabby trivial measly piddling piddly tepid mild delightful balmy modest spicy lovely]
 !!!
 %html
   %head
@@ -32,4 +33,4 @@
         %p
 
       - else
-        %p Nope. It's only a paltry #{@temp}&deg;
+        %p Nope. It's only a #{adj.sample} #{@temp}&deg;

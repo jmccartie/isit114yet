@@ -11,7 +11,7 @@ describe 'the main app' do
       Dalli::Client.new.delete('is_it_114')
       WeatherUnderground::Base.stub_chain(:new, :CurrentObservations, :temp_f, :to_f) {113.0}
       visit '/'
-      page.should have_content("Nope. It's only a paltry")
+      page.should have_content("Nope. It's only")
     end
   end
 
