@@ -4,26 +4,22 @@ require 'sinatra'
 require 'haml'
 require 'dalli'
 require 'weather-underground'
+require './temp.rb'
 ENV["TZ"] = "America/Chicago"
 
 set :cache, Dalli::Client.new
 
 get '/' do
   @is_it_114 = settings.cache.get('is_it_114')
-  @temp = WeatherUnderground::Base.new.CurrentObservations( 'Oklahoma City, OK' ).temp_f.to_f
+  @temp = settings.cache.get('current_temp')
 
-  if @is_it_114.nil?
-    if @temp >= 114.0
-      @is_it_114 = true
-      @time_set = Time.now
-      settings.cache.set('is_it_114', true)
-      settings.cache.set('record_set_at', @time_set)
-    else
-      @is_it_114 = false
-    end
-  else
-    @time_set = settings.cache.get('record_set_at')
+  if @temp.nil?
+    Temp::set_temp
+    @is_it_114 = settings.cache.get('is_it_114')
+    @temp = settings.cache.get('current_temp')
   end
+
+  @time_set = settings.cache.get('record_set_at')
 
   haml :index
 end

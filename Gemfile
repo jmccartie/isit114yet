@@ -9,6 +9,7 @@ gem "dalli", "1.0.5"
 
 group :development do
   gem 'shotgun'
+  gem 'foreman'
 end
 
 group :test do
