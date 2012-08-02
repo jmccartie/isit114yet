@@ -18,6 +18,7 @@ class Temp
 
     if temp >= 114
       dalli.set('is_it_114', true)
+      dalli.set('record_set_at', Time.now)
     end
   end
 
