@@ -14,15 +14,28 @@
       #main {
         margin-top: 40px;
       }
+      .hide {
+        display: none;
+      }
+      #updated-at {
+        font-size: 10px;
+        text-decoration: italic;
+      }
+    %meta{:content => "width = device-width", :name => "viewport"}/
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"}
+    %script{src: "/application.js"}
   %body
     #main
-      %h1 Is it 114&deg; yet in Oklahoma City?
-      - if @is_it_114
+      #loading
+        %img{src: "loading.gif"}
+      #header.hide
+        %h1 Is it 114&deg; yet in Oklahoma City?
+      #record-set.hide
         %h2 YES!
         %p
-          It hit 114&deg; at #{@time_set.strftime("%I:%M%p")}.
+          It hit 114&deg; <span class="record-set-at"></span>.
           %br/
-          The current temp is #{@temp}&deg;
+          The current temp is <span class="current-temp"></span>&deg;
         %center
           %table
             %tr
@@ -31,6 +44,7 @@
               %td
                 %img{:src => "http://i531.photobucket.com/albums/dd358/iwanttorentawombat/facemelt.gif", :style => "position:relative; left: -157px; top: -75px;"}
         %p
+      #record-not-set.hide
+        %p Nope. It's only a #{adj.sample} <span class="current-temp"></span>&deg;
 
-      - else
-        %p Nope. It's only a #{adj.sample} #{@temp}&deg;
+      #updated-at.hide
