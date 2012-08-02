@@ -6,11 +6,11 @@ gem "haml", "3.1.2"
 gem "weather-underground", "~> 1.1.1"
 gem "dalli", "1.0.5"
 gem "coffee-script"
-gem "therubyracer"
 
 group :development do
   gem 'shotgun'
   gem 'foreman'
+  gem "therubyracer"
 end
 
 group :test do
