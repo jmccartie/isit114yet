@@ -10,7 +10,7 @@ gem "coffee-script"
 group :development do
   gem 'shotgun'
   gem 'foreman'
-  gem "therubyracer"
+  gem "therubyracer", require: "v8"
 end
 
 group :test do
